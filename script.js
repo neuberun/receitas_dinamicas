@@ -1,5 +1,3 @@
-const catalogo_div = document.getElementById("pnlCatalogo");
-
 const dados = [
     {
         titulo: "Hambúrguer com Crispy de Cebola",
@@ -36,15 +34,35 @@ const dados = [
     }
 ];
 
-function getListaIngredientes(receita){
-
+function getListaIngredientes(receita) {
+    return receita.ingredientes.reduce((acumulador, item) => acumulador += `<li>${item}</li>`, "");
 }
 
-function getCard(receita)
-{
+function getCard(receita) {
+    const card = `
+    <div class="card">
+        <img src="${receita.imagem}" alt="Receita de: ${receita.titulo}" class="card-img-top">
+        <div class="card-body">
+            <div class="card-title">
+                ${receita.titulo}
+            </div>
+            <ul>
+                ${getListaIngredientes(receita)}
+            </ul>
+            <hr>
+            <div class="card-text">
+                    <p>
+                    ${receita.preparo}
+                </p>
+            </div>
+        </div>
+    </div>
+    `;
 
+    return card;
 }
 
-function preencheCatalogo(){
-    
+function preencheCatalogo() {
+    const catalogo_div = document.getElementById("pnlCatalogo");
+    catalogo_div.innerHTML = dados.reduce((acumulador, item) => acumulador += getCard(item), "");
 }

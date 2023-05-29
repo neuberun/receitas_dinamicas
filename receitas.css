@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+}
+
+#pnlCatalogo {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* card das receitas */
+
+.card {
+    margin: 20px;
+    width: 400px;
+}
+
+.card-img-top {
+    width: auto;
+    height: 33%;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: large;
+    font-weight: bolder;
+}
+
+.card-body ul {
+    display: flex;
+    flex-direction: column;
+    list-style: disc;
+    text-align: left;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+/* ------------------------------------- */
